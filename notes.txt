@@ -1,22 +1,7 @@
-Steps
-	1.	Login to Grafana UI
-	•	Navigate to your Grafana instance
-	•	Ensure you are in the correct environment (e.g., PROD)
-	2.	Go to Alerting
-	•	From the left menu → Click Alerting
-	3.	Open Silences
-	•	Click on Silences
-	•	Click ➕ Create Silence
-	4.	Configure Silence
-Duration
-	•	Set duration: 6h (or based on exercise window)
-Labels (Critical Step)
-	•	Add label:
-	•	Key: email
-	•	Operator: =
-	•	Value: prod
-(This ensures alerts routed via this label are suppressed)
-	5.	Add Comment
-Suppression added as part of CDRT exercise on <DATE>
-6.	Save Silence
-	•	Click Create / Save Silence
+I wanted to check in regarding the ORC tracking approach for TechOps.
+
+Previously, we’ve been tracking ORC items using the TechOps ORC checklist. NIT has been working on consolidating ORC tracking, and for the FLM project, the PMs are now using the CWW Release Readiness Catalog as the source of truth going forward.
+
+I raised this with Joe Manietta to confirm whether leadership (Kent and Joe) is aligned with this shift. Traci Wolf mentioned that Craig has been working closely on this and is aware of the change.
+
+Can you please confirm if we should transition to using the consolidated ORC (Release Readiness Catalog) from NIT as the standard going forward, or continue maintaining the TechOps ORC checklist?
