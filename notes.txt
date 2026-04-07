@@ -1,0 +1,22 @@
+Steps
+	1.	Login to Grafana UI
+	•	Navigate to your Grafana instance
+	•	Ensure you are in the correct environment (e.g., PROD)
+	2.	Go to Alerting
+	•	From the left menu → Click Alerting
+	3.	Open Silences
+	•	Click on Silences
+	•	Click ➕ Create Silence
+	4.	Configure Silence
+Duration
+	•	Set duration: 6h (or based on exercise window)
+Labels (Critical Step)
+	•	Add label:
+	•	Key: email
+	•	Operator: =
+	•	Value: prod
+(This ensures alerts routed via this label are suppressed)
+	5.	Add Comment
+Suppression added as part of CDRT exercise on <DATE>
+6.	Save Silence
+	•	Click Create / Save Silence
