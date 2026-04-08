@@ -1,0 +1,27 @@
+cd ~/Nexus-OpsIQ/commercial/opsiq-poc-commercial/opsiq-full/dashboard
+
+export VITE_API_URL=https://zwub84rfj6.execute-api.us-west-2.amazonaws.com/poc
+export VITE_WS_URL=wss://d6qyq17pns1.execute-api.us-west-2.amazonaws.com/poc
+export PROJECT=opsiq
+export REGION=us-west-2
+
+npm install
+npm run build
+
+ACCOUNT_ID=615299738349
+aws s3 sync dist/ s3://opsiq-dashboard-615299738349/ \
+  --region us-west-2 \
+  --delete \
+  --exclude "index.html" \
+  --cache-control "public, max-age=31536000, immutable"
+
+aws s3 cp dist/index.html s3://opsiq-dashboard-615299738349/index.html \
+  --region us-west-2 \
+  --cache-control "no-cache, no-store, must-revalidate" \
+  --content-type "text/html"
+
+aws cloudfront create-invalidation \
+  --distribution-id $(aws cloudfront list-distributions \
+    --query "DistributionList.Items[?Comment=='OpsIQ Dashboard - opsiq'].Id" \
+    --output text) \
+  --paths "/*"
